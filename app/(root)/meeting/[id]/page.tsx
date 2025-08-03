@@ -8,7 +8,8 @@ import { useUser } from '@clerk/nextjs';
 import { StreamCall, StreamTheme } from '@stream-io/video-react-sdk';
 import React, { useState } from 'react';
 
-// @ts-expect-error
+// @ts-expect-error: params typing error due to App Router dynamic segment
+
 
 const Meeting = ({ params: { id } }: { params: { id: string } }) => {
   const { user, isLoaded } = useUser();
