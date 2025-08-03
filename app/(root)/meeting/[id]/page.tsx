@@ -1,4 +1,5 @@
 'use client';
+
 import Loader from '@/components/ui/Loader';
 import MeetingRoom from '@/components/ui/MeetingRoom';
 import MeetingSetup from '@/components/ui/MeetingSetup';
@@ -7,13 +8,8 @@ import { useUser } from '@clerk/nextjs';
 import { StreamCall, StreamTheme } from '@stream-io/video-react-sdk';
 import React, { useState } from 'react';
 
-type PageProps = {
-  params: {
-    id: string;
-  };
-};
-
-const Page = ({ params: { id } }: PageProps) => {
+// @ts-ignore
+const Meeting = ({ params: { id } }: { params: { id: string } }) => {
   const { user, isLoaded } = useUser();
   const [Issetupcomplete, setIssetupcomplete] = useState(false);
   const { Call, IsCallLoading } = useGetCallById(id);
@@ -35,4 +31,4 @@ const Page = ({ params: { id } }: PageProps) => {
   );
 };
 
-export default Page;
+export default Meeting;
