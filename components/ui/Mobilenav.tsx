@@ -43,30 +43,26 @@ const Mobilenav = () => {
                         <SheetClose asChild>
                             <section className='flex h-full flex-col gap-6 pt-4 text-white'>
                                 {sidebarLinks.map((link) => {
-                                    const isActive = pathname === link.route
+  const isActive = pathname === link.route;
 
-                                    return (
-                                        <SheetClose asChild key={link.label}>
-                                            <Link
-                                                href={link.route}
-                                                className={cn(
-                                                    'flex gap-4 items-center p-4 rounded-lg w-full transition-all',
-                                                    {
-                                                        'bg-[#0e78f9]': isActive,
-                                                    }
-                                                )}
-                                            >
-                                                <Image
-                                                    src={link.imgUrl}
-                                                    alt={link.label}
-                                                    width={20}
-                                                    height={20}
-                                                />
-                                                <p className='text-lg font-semibold'>{link.label}</p>
-                                            </Link>
-                                        </SheetClose>
-                                    )
-                                })}
+  return (
+    <React.Fragment key={link.label}>
+      <SheetClose asChild>
+        <Link
+          href={link.route}
+          className={cn(
+            'flex gap-4 items-center p-4 rounded-lg w-full transition-all',
+            { 'bg-[#0e78f9]': isActive }
+          )}
+        >
+          <Image src={link.imgUrl} alt={link.label} width={20} height={20} />
+          <p className='text-lg font-semibold'>{link.label}</p>
+        </Link>
+      </SheetClose>
+    </React.Fragment>
+  );
+})}
+
                             </section>
                         </SheetClose>
                     </div>
