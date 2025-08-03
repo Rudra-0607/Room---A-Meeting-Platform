@@ -8,7 +8,8 @@ import { useUser } from '@clerk/nextjs';
 import { StreamCall, StreamTheme } from '@stream-io/video-react-sdk';
 import React, { useState } from 'react';
 
-// @ts-ignore
+// @ts-expect-error
+
 const Meeting = ({ params: { id } }: { params: { id: string } }) => {
   const { user, isLoaded } = useUser();
   const [Issetupcomplete, setIssetupcomplete] = useState(false);
